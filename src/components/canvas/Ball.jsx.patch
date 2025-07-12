@@ -1,0 +1,48 @@
+const finalTexture = useMemo(() => {
+    // If icon is SVG or invalid path, use emoji texture fallback
+    if (typeof icon === "string" && icon.toLowerCase().endsWith(".svg")) {
+      return createEmojiTexture(icon);
+    }
+    if (isValidIconPath) {
+      // If texture failed to load, use fallback
+      if (!texture || !texture.image) {
+        return fallbackTexture;
+      }
+      return texture;
+    } else if (typeof icon === "string" && icon.trim().length > 0) {
+      return createEmojiTexture(icon);
+    } else {
+      console.warn("Invalid or empty icon string, using fallback emoji");
+      return fallbackTexture;
+    }
+  }, [icon, texture, fallbackTexture, isValidIconPath]);
+=======
+  // Determine which texture to use
+  const finalTexture = useMemo(() => {
+    if (typeof icon !== "string" || icon === null || icon === undefined) {
+      console.warn("Icon prop is not a valid string, using fallback emoji");
+      return fallbackTexture;
+    }
+
+    // If icon is SVG file path, do not create emoji texture from path string
+    if (icon.toLowerCase().endsWith(".svg")) {
+      // Use fallback texture for SVG files as TextureLoader does not support SVG
+      return fallbackTexture;
+    }
+
+    // If valid icon path (non-SVG), use loaded texture or fallback
+    if (isValidIconPath) {
+      if (!texture || !texture.image) {
+        return fallbackTexture;
+      }
+      return texture;
+    }
+
+    // If icon is a non-empty string (likely emoji), create emoji texture
+    if (icon.trim().length > 0) {
+      return createEmojiTexture(icon);
+    }
+
+    console.warn("Invalid or empty icon string, using fallback emoji");
+    return fallbackTexture;
+  }, [icon, texture, fallbackTexture, isValidIconPath]);

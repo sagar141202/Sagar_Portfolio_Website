@@ -98,7 +98,20 @@ export default function Hero() {
             <div className="hero-float">
               <div className="profile-container">
                 <div className="profile-glow"></div>
-                <div className="profile-image">
+                <div
+                  className="profile-image"
+                  onTouchStart={() => {
+                    // Add a subtle scale effect on touch for mobile interactivity
+                    const img = document.querySelector(".profile-img")
+                    if (img) {
+                      img.style.transition = "transform 0.3s ease"
+                      img.style.transform = "scale(1.05)"
+                      setTimeout(() => {
+                        img.style.transform = "scale(1)"
+                      }, 300)
+                    }
+                  }}
+                >
                   {/* Replace the placeholder text "SM" with profile image */}
                   <img src="/profile.png" alt="Profile Image" className="profile-img" />
                 </div>

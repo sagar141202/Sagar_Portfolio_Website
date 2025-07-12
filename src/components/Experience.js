@@ -1,31 +1,93 @@
-"use client"
+import React from "react";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import { motion } from "framer-motion";
 
-import { useEffect, useRef } from "react"
-import { motion } from "framer-motion"
-import { gsap } from "gsap"
+import "react-vertical-timeline-component/style.min.css";
 
-export default function Experience() {
-  const experienceRef = useRef(null)
+import { textVariant } from "../utils/motion";
 
-  useEffect(() => {
-    gsap.fromTo(
-      ".timeline-item",
-      { opacity: 0, x: -50 },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 0.8,
-        stagger: 0.3,
-        scrollTrigger: {
-          trigger: ".experience-section",
-          start: "top 70%",
-          end: "bottom 30%",
-          toggleActions: "play none none reverse",
-        },
-      },
-    )
-  }, [])
+const ExperienceCard = ({ experience }) => {
+  const renderIcon = () => {
+    if (experience.company === "SEG Automotive India Private Limited") {
+      return <img src="/seg_logo.svg" alt="SEG Logo" className="w-10 h-10 object-contain" />;
+    } else if (
+      experience.company === "Robert BOSCH Automotive Electronics India Private Limited"
+    ) {
+      return <img src="/bosch_logo.svg" alt="Bosch Logo" className="w-10 h-10 object-contain" />;
+      } else if (
+        experience.institution === "National Institute of Technology Kurukshetra"
+      ) {
+        return <img src="/nit_logo.png" alt="NIT Logo" className="w-10 h-10 object-contain border border-white" />;
+      } else {
+      return (
+        <span className="text-white font-bold">
+          {experience.company
+            ? experience.company[0]
+            : experience.institution
+            ? experience.institution[0]
+            : ""}
+        </span>
+      );
+    }
+  };
 
+  return (
+    <VerticalTimelineElement
+      contentStyle={{
+        background: "#1d1836",
+        color: "#fff",
+      }}
+      contentArrowStyle={{ borderRight: "7px solid  #232631" }}
+      date={experience.period}
+      iconStyle={{ background: "#fff" }}
+      icon={
+        <div className="flex justify-center items-center w-full h-full">
+          {renderIcon()}
+        </div>
+      }
+    >
+      <div>
+        <h3 className="text-white text-[24px] font-bold">{experience.title}</h3>
+        <p
+          className="text-secondary text-[16px] font-semibold"
+          style={{ margin: 0 }}
+        >
+          {experience.company || experience.institution}
+        </p>
+        {experience.location && (
+          <p className="text-secondary text-[14px]">{experience.location}</p>
+        )}
+        {experience.field && (
+          <p className="text-secondary text-[14px]">{experience.field}</p>
+        )}
+      </div>
+
+      {experience.description && (
+        <ul className="mt-5 list-disc ml-5 space-y-2">
+          {experience.description.map((point, index) => (
+            <li
+              key={`experience-point-${index}`}
+              className="text-white-100 text-[14px] pl-1 tracking-wider"
+            >
+              {point}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {experience.grade && (
+        <p className="mt-5 text-white-100 text-[14px] pl-1 tracking-wider">
+          {experience.grade}
+        </p>
+      )}
+    </VerticalTimelineElement>
+  );
+};
+
+const Experience = () => {
   const experiences = [
     {
       title: "Summer Intern",
@@ -51,7 +113,7 @@ export default function Experience() {
       ],
       current: false,
     },
-  ]
+  ];
 
   const education = [
     {
@@ -68,92 +130,39 @@ export default function Experience() {
       period: "2020 - 2022",
       grade: "Percentage: 91.5%",
     },
-  ]
+  ];
 
   return (
-    <section id="experience" className="experience-section" ref={experienceRef}>
-      <div className="section-container">
-        <motion.div
-          className="section-header"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="section-title">
-            <span className="gradient-text">Experience & Education</span>
-          </h2>
-          <div className="title-underline"></div>
-        </motion.div>
+    <div id="experience">
+      <motion.div variants={textVariant()}>
+        <p className="text-center text-gray-400 text-sm mb-2">
+          What I have done so far
+        </p>
+        <h2 className="text-center text-3xl font-bold mb-10">
+          Work Experience & Education
+        </h2>
+      </motion.div>
 
-        <div className="experience-content">
-          <div className="experience-column">
-            <h3 className="column-title">Professional Experience</h3>
-            <div className="timeline">
-              {experiences.map((exp, index) => (
-                <motion.div
-                  key={index}
-                  className={`timeline-item ${exp.current ? "current" : ""} interactive`}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <div className="timeline-marker">
-                    <div className="marker-dot"></div>
-                    <div className="marker-glow"></div>
-                  </div>
-
-                  <div className="timeline-content">
-                    <div className="timeline-header">
-                      <h4 className="timeline-title">{exp.title}</h4>
-                      <span className="timeline-period">{exp.period}</span>
-                    </div>
-
-                    <div className="timeline-company">
-                      <span className="company-name">{exp.company}</span>
-                      <span className="company-location">{exp.location}</span>
-                    </div>
-
-                    <ul className="timeline-description">
-                      {exp.description.map((item, i) => (
-                        <li key={i}>{item}</li>
-                      ))}
-                    </ul>
-
-                    {exp.current && <div className="current-badge">Current</div>}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          <div className="experience-column">
-            <h3 className="column-title">Education</h3>
-            <div className="timeline">
-              {education.map((edu, index) => (
-                <motion.div key={index} className="timeline-item interactive" whileHover={{ scale: 1.02 }}>
-                  <div className="timeline-marker">
-                    <div className="marker-dot"></div>
-                    <div className="marker-glow"></div>
-                  </div>
-
-                  <div className="timeline-content">
-                    <div className="timeline-header">
-                      <h4 className="timeline-title">{edu.title}</h4>
-                      <span className="timeline-period">{edu.period}</span>
-                    </div>
-
-                    <div className="timeline-company">
-                      <span className="company-name">{edu.institution}</span>
-                      <span className="company-location">{edu.field}</span>
-                    </div>
-
-                    <div className="timeline-grade">{edu.grade}</div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
+      <div className='mt-20 flex flex-col'>
+        <VerticalTimeline>
+          {experiences.map((experience, index) => (
+            <ExperienceCard
+              key={`experience-${index}`}
+              experience={experience}
+            />
+          ))}
+        </VerticalTimeline>
       </div>
-    </section>
-  )
-}
+
+      <div className='mt-20 flex flex-col'>
+        <VerticalTimeline>
+          {education.map((edu, index) => (
+            <ExperienceCard key={`education-${index}`} experience={edu} />
+          ))}
+        </VerticalTimeline>
+      </div>
+    </div>
+  );
+};
+
+export default Experience;

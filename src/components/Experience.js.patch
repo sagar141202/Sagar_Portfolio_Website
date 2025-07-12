@@ -1,0 +1,158 @@
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import { motion } from "framer-motion";
+
+import "react-vertical-timeline-component/style.min.css";
+
+import { textVariant } from "../utils/motion";
+=======
+import React from "react";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import { motion } from "framer-motion";
+
+import "react-vertical-timeline-component/style.min.css";
+
+import { textVariant } from "../utils/motion";
+
+import segLogo from "../assets/seg_logo.svg";
+import boschLogo from "../assets/bosch_logo.svg";
+import nitLogo from "../assets/nit_logo.png";
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+const ExperienceCard = ({ experience }) => {
+  return (
+    <VerticalTimelineElement
+      contentStyle={{
+        background: "#1d1836",
+        color: "#fff",
+      }}
+      contentArrowStyle={{ borderRight: "7px solid  #232631" }}
+      date={experience.period}
+      iconStyle={{ background: "#333" }}
+      icon={
+        <div className='flex justify-center items-center w-full h-full'>
+          <span className="text-white font-bold">{experience.company ? experience.company[0] : experience.institution[0]}</span>
+        </div>
+      }
+    >
+      <div>
+        <h3 className='text-white text-[24px] font-bold'>{experience.title}</h3>
+        <p
+          className='text-secondary text-[16px] font-semibold'
+          style={{ margin: 0 }}
+        >
+          {experience.company || experience.institution}
+        </p>
+        {experience.location && (
+          <p className='text-secondary text-[14px]'>{experience.location}</p>
+        )}
+        {experience.field && (
+          <p className='text-secondary text-[14px]'>{experience.field}</p>
+        )}
+      </div>
+
+      {experience.description && (
+        <ul className='mt-5 list-disc ml-5 space-y-2'>
+          {experience.description.map((point, index) => (
+            <li
+              key={`experience-point-${index}`}
+              className='text-white-100 text-[14px] pl-1 tracking-wider'
+            >
+              {point}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {experience.grade && (
+        <p className='mt-5 text-white-100 text-[14px] pl-1 tracking-wider'>
+          {experience.grade}
+        </p>
+      )}
+    </VerticalTimelineElement>
+  );
+};
+=======
+const ExperienceCard = ({ experience }) => {
+  const renderIcon = () => {
+    if (experience.company === "SEG Automotive India Private Limited") {
+      return <img src={segLogo} alt="SEG Logo" className="w-10 h-10 object-contain" />;
+    } else if (
+      experience.company === "Robert BOSCH Automotive Electronics India Private Limited"
+    ) {
+      return <img src={boschLogo} alt="Bosch Logo" className="w-10 h-10 object-contain" />;
+    } else if (
+      experience.institution === "National Institute of Technology Kurukshetra"
+    ) {
+      return <img src={nitLogo} alt="NIT Logo" className="w-10 h-10 object-contain" />;
+    } else {
+      return (
+        <span className="text-white font-bold">
+          {experience.company
+            ? experience.company[0]
+            : experience.institution
+            ? experience.institution[0]
+            : ""}
+        </span>
+      );
+    }
+  };
+
+  return (
+    <VerticalTimelineElement
+      contentStyle={{
+        background: "#1d1836",
+        color: "#fff",
+      }}
+      contentArrowStyle={{ borderRight: "7px solid  #232631" }}
+      date={experience.period}
+      iconStyle={{ background: "#333" }}
+      icon={
+        <div className="flex justify-center items-center w-full h-full">
+          {renderIcon()}
+        </div>
+      }
+    >
+      <div>
+        <h3 className="text-white text-[24px] font-bold">{experience.title}</h3>
+        <p
+          className="text-secondary text-[16px] font-semibold"
+          style={{ margin: 0 }}
+        >
+          {experience.company || experience.institution}
+        </p>
+        {experience.location && (
+          <p className="text-secondary text-[14px]">{experience.location}</p>
+        )}
+        {experience.field && (
+          <p className="text-secondary text-[14px]">{experience.field}</p>
+        )}
+      </div>
+
+      {experience.description && (
+        <ul className="mt-5 list-disc ml-5 space-y-2">
+          {experience.description.map((point, index) => (
+            <li
+              key={`experience-point-${index}`}
+              className="text-white-100 text-[14px] pl-1 tracking-wider"
+            >
+              {point}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {experience.grade && (
+        <p className="mt-5 text-white-100 text-[14px] pl-1 tracking-wider">
+          {experience.grade}
+        </p>
+      )}
+    </VerticalTimelineElement>
+  );
+};

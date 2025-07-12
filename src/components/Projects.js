@@ -30,15 +30,28 @@ export default function Projects() {
 
   const projects = [
     {
+      title: "WebSocket Integrated Dashboard",
+      description:
+        "Real-time telemetry dashboard using React.js with WebSocket and CAN communication from ESP32. Features dynamic UI and graphing modules for monitoring sensor data and system alerts.",
+      technologies: ["React.js", "WebSocket", "CAN", "Arduino", "Telemetry"],
+      features: ["Real-time Monitoring", "Dynamic UI", "Graphing Modules", "Scalable Architecture"],
+      link: "#",
+      github: "https://github.com/maddisagar/Dynamic_Message_Integrated",
+      image: "/websocketintegrateddashboard.png",
+      category: "Full Stack",
+      showGithub: true,
+    },
+    {
       title: "FarmTrade Model",
       description:
         "Full-stack platform connecting 150+ farmers with investors, achieving 200% increase in engagement with advanced authentication and optimized UI.",
       technologies: ["JavaScript", "HTML", "Flask", "ReactJS", "Appwrite"],
       features: ["Real-time Communication", "Secure Authentication", "Investment Tracking", "Farmer Dashboard"],
       link: "#",
-      github: "#",
+      github: "https://github.com/DeependraVarshney/farmtrade2",
       image: "/farmtrade.png",
       category: "Full Stack",
+      showGithub: true,
     },
     {
       title: "Hand Gesture Control Game",
@@ -47,9 +60,10 @@ export default function Projects() {
       technologies: ["Python", "OpenCV", "Machine Learning"],
       features: ["Real-time Recognition", "Gesture Mapping", "Game Integration", "Performance Optimization"],
       link: "#",
-      github: "#",
+      github: "https://github.com/Sagarmaddi1412/Hand-Gesture-Controlled-Game",
       image: "/handgesturecontrolgame.png",
       category: "AI/ML",
+      showGithub: true,
     },
     {
       title: "Complete Fruits Ecommerce",
@@ -58,9 +72,10 @@ export default function Projects() {
       technologies: ["ReactJS", "Framer Motion", "CSS3"],
       features: ["Responsive Design", "Smooth Animations", "Shopping Cart", "Payment Integration"],
       link: "#",
-      github: "#",
+      github: "https://github.com/example/complete-fruits-ecommerce",
       image: "/placeholder.svg?height=300&width=400",
       category: "E-commerce",
+      showGithub: false,
     },
     {
       title: "Temperature Converter",
@@ -69,9 +84,10 @@ export default function Projects() {
       technologies: ["React Native", "JavaScript", "Mobile Development"],
       features: ["Multi-scale Support", "Real-time Conversion", "Intuitive UI", "Cross-platform"],
       link: "#",
-      github: "#",
+      github: "https://github.com/example/temperature-converter",
       image: "/temperatureconverter.png",
       category: "Mobile",
+      showGithub: false,
     },
     {
       title: "3D CHARCON Visualization",
@@ -80,9 +96,10 @@ export default function Projects() {
       technologies: ["3D Modeling", "WebGL", "Three.js"],
       features: ["Interactive 3D Models", "Real-time Rendering", "Product Visualization", "Performance Optimization"],
       link: "#",
-      github: "#",
+      github: "https://github.com/example/3d-charcon-visualization",
       image: "/charcon.png",
       category: "3D/Visualization",
+      showGithub: false,
     },
   ]
 
@@ -122,22 +139,18 @@ export default function Projects() {
                 <img src={project.image || "/placeholder.svg"} alt={project.title} className="project-image" />
                 <div className="project-overlay">
                   <div className="project-links">
-                    <motion.a
-                      href={project.link}
-                      className="project-link interactive"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <span>Live Demo</span>
-                    </motion.a>
-                    <motion.a
-                      href={project.github}
-                      className="project-link interactive"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <span>GitHub</span>
-                    </motion.a>
+                    {project.showGithub && (
+                      <motion.a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-link interactive"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <span>GitHub</span>
+                      </motion.a>
+                    )}
                   </div>
                 </div>
                 <div className="project-category">{project.category}</div>

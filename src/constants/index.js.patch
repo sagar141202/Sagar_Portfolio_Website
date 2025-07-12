@@ -1,0 +1,160 @@
+{
+    name: "JavaScript",
+    icon: "/assets/javascript.png",
+  },
+  {
+    name: "Python",
+    icon: "/assets/python.png",
+  },
+  {
+    name: "C++",
+    icon: "/assets/c++.png",
+  },
+  {
+    name: "C",
+    icon: "/assets/c.png",
+  },
+  {
+    name: "HTML/CSS",
+    icon: "/assets/htmlcss.png",
+  },
+  {
+    name: "SQL",
+    icon: "/assets/sql.png",
+  },
+  {
+    name: "React.js",
+    icon: "/assets/react.png",
+  },
+  {
+    name: "Flask",
+    icon: "/assets/flask.png",
+  },
+  {
+    name: "React Native",
+    icon: "/assets/reactnative.png",
+  },
+  {
+    name: "GSAP",
+    icon: "/assets/gsap.png",
+  },
+  {
+    name: "VS Code",
+    icon: "/assets/vscode.png",
+  },
+  {
+    name: "OpenCV",
+    icon: "/assets/opencv.png",
+  },
+  {
+    name: "MATLAB",
+    icon: "/assets/matlab.png",
+  },
+  {
+    name: "Appwrite",
+    icon: "/assets/appwrite.png",
+  },
+];
+=======
+export const technologies = [
+  {
+    name: "JavaScript",
+    icon: "/assets/javascript.png",
+  },
+  {
+    name: "Python",
+    icon: "/assets/python.png",
+  },
+  {
+    name: "C++",
+    icon: "/assets/c++.png",
+  },
+  {
+    name: "C",
+    icon: "/assets/c.png",
+  },
+  {
+    name: "HTML/CSS",
+    icon: "/assets/htmlcss.png",
+  },
+  {
+    name: "SQL",
+    icon: "/assets/sql.png",
+  },
+  {
+    name: "React.js",
+    icon: "/assets/react.png",
+  },
+  {
+    name: "Flask",
+    icon: "/assets/flask.png",
+  },
+  {
+    name: "React Native",
+    icon: "/assets/reactnative.png",
+  },
+  {
+    name: "GSAP",
+    icon: "/assets/gsap.png",
+  },
+  {
+    name: "VS Code",
+    icon: "/assets/vscode.png",
+  },
+  {
+    name: "OpenCV",
+    icon: "/assets/opencv.png",
+  },
+  {
+    name: "MATLAB",
+    icon: "/assets/matlab.png",
+  },
+  {
+    name: "Appwrite",
+    icon: "/assets/appwrite.png",
+  },
+  {
+    name: "Arduino",
+    icon: "/assets/arduino.png",
+  },
+  {
+    name: "WebSocket",
+    icon: "/assets/websocket.png",
+  },
+  {
+    name: "Docker",
+    icon: "/assets/docker.png",
+  },
+  {
+    name: "Figma",
+    icon: "/assets/figma.png",
+  },
+  {
+    name: "GitHub",
+    icon: "/assets/github.png",
+  },
+  {
+    name: "MongoDB",
+    icon: "/assets/mongodb.png",
+  },
+  {
+    name: "Node.js",
+    icon: "/assets/nodejs.png",
+  },
+  {
+    name: "TailwindCSS",
+    icon: "/assets/tailwindcss.png",
+  },
+  {
+    name: "Three.js",
+    icon: "/assets/threejs.png",
+  },
+  {
+    name: "TypeScript",
+    icon: "/assets/typescript.png",
+  },
+  {
+    name: "Vite.js",
+    icon: "/assets/vitejs.png",
+  },
+];

@@ -1,0 +1,19 @@
+import Navigation from "../components/Navigation"
+import "../styles/globals.css"
+=======
+import Contact from "../components/Contact"
+import Navigation from "../components/Navigation"
+import Skills from "../components/Skills"
+import "../styles/globals.css"
+>>>>>>> REPLACE
+<<<<<<< SEARCH
+        <Projects />
+        <Tech />
+        <Contact />
+      </main>
+=======
+        <Projects />
+        <Skills />
+        <Tech />
+        <Contact />
+      </main>

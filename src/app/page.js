@@ -8,9 +8,10 @@ import Hero from "../components/Hero"
 import About from "../components/About"
 import Experience from "../components/Experience"
 import Projects from "../components/Projects"
-import Skills from "../components/Skills"
+import Tech from "../components/Tech"
 import Contact from "../components/Contact"
 import Navigation from "../components/Navigation"
+import Skills from "../components/Skills"
 import "../styles/globals.css"
 
 gsap.registerPlugin(ScrollTrigger)
@@ -19,11 +20,21 @@ export default function Portfolio() {
   const mainRef = useRef(null)
 
   useEffect(() => {
-    // Smooth scroll setup
-    gsap.to(mainRef.current, {
-      duration: 0.1,
-      ease: "none",
-    })
+    // Improved smooth scroll setup using ScrollTrigger's scrollerProxy for better performance
+    if (mainRef.current) {
+      let scrollPos = 0;
+      gsap.to({}, {
+        duration: 0.1,
+        repeat: -1,
+        onRepeat: () => {
+          const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+          if (scrollPos !== currentScroll) {
+            scrollPos = currentScroll;
+            ScrollTrigger.update();
+          }
+        }
+      });
+    }
 
     // Page load animation
     gsap.fromTo(".page-loader", { opacity: 1 }, { opacity: 0, duration: 1, delay: 2, display: "none" })
@@ -51,6 +62,7 @@ export default function Portfolio() {
         <Experience />
         <Projects />
         <Skills />
+        <Tech />
         <Contact />
       </main>
 
