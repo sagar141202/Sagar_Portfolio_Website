@@ -142,7 +142,7 @@ export default function Contact() {
             <span className="gradient-text">Get In Touch</span>
           </h2>
           <div className="title-underline"></div>
-          <p className="section-subtitle">Let's collaborate and create something amazing together</p>
+          <p className="section-subtitle">Let&apos;s collaborate and create something amazing together</p>
         </motion.div>
 
         <div className="contact-content">
@@ -221,7 +221,7 @@ export default function Contact() {
 
               {submitStatus === "success" && (
                 <motion.div className="success-message" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-                  ✅ Message sent successfully! I'll get back to you soon.
+                  ✅ Message sent successfully! I&apos;ll get back to you soon.
                 </motion.div>
               )}
 
@@ -241,9 +241,9 @@ export default function Contact() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h3 className="contact-info-title">Let's Connect</h3>
-              <p className="contact-info-text">
-                I'm always excited to discuss new opportunities, innovative projects, or just have a chat about
+              <h3 className="contact-info-title">Let&apos;s Connect</h3>
+                <p className="contact-info-text">
+                I&apos;m always excited to discuss new opportunities, innovative projects, or just have a chat about
                 technology and development.
               </p>
 
@@ -268,7 +268,7 @@ export default function Contact() {
               <div className="contact-availability">
                 <div className="availability-indicator">
                   <div className="status-dot"></div>
-                  <span>Available for new opportunities</span>
+                <span>Available for new opportunities</span>
                 </div>
               </div>
             </motion.div>

@@ -77,7 +77,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              I'm a passionate Electronics & Communication Engineering student at NIT Kurukshetra with a strong
+              I&apos;m a passionate Electronics & Communication Engineering student at NIT Kurukshetra with a strong
               foundation in full-stack development and emerging technologies. My journey spans from embedded systems to
               modern web applications, always driven by curiosity and innovation.
             </motion.p>
@@ -89,7 +89,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              With hands-on experience at industry leaders like BOSCH and SEG Automotive, I've developed expertise in
+              With hands-on experience at industry leaders like BOSCH and SEG Automotive, I&apos;ve developed expertise in
               React.js, Python, and IoT systems. I thrive on creating solutions that bridge the gap between hardware and
               software, bringing ideas to life through code and creativity.
             </motion.p>
