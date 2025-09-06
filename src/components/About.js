@@ -8,40 +8,45 @@ export default function About() {
   const aboutRef = useRef(null)
 
   useEffect(() => {
-    gsap.fromTo(
-      ".about-content",
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: ".about-section",
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none reverse",
-        },
-      },
-    )
+    // Disable animations on mobile for performance
+    const isMobile = window.innerWidth <= 768;
 
-    gsap.fromTo(
-      ".about-stats",
-      { opacity: 0, x: -50 },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: ".about-stats",
-          start: "top 80%",
+    if (!isMobile) {
+      gsap.fromTo(
+        ".about-content",
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: ".about-section",
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
         },
-      },
-    )
+      )
+
+      gsap.fromTo(
+        ".about-stats",
+        { opacity: 0, x: -50 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.8,
+          stagger: 0.2,
+          scrollTrigger: {
+            trigger: ".about-stats",
+            start: "top 80%",
+          },
+        },
+      )
+    }
   }, [])
 
   const stats = [
-    { number: "8.08", label: "CGPA", suffix: "" },
+    { number: "8.23", label: "CGPA", suffix: "" },
     { number: "2+", label: "Internships", suffix: "" },
     { number: "5+", label: "Projects", suffix: "" },
     { number: "91.5", label: "PU %", suffix: "%" },
@@ -101,7 +106,7 @@ export default function About() {
                 <span>NIT Kurukshetra Student</span>
               </div>
               <div className="highlight-item">
-                <span className="highlight-icon">💼</span>
+                <span className="highlight-icon">🛠️</span>
                 <span>Industry Experience</span>
               </div>
               <div className="highlight-item">

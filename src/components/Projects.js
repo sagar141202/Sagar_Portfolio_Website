@@ -37,6 +37,7 @@ export default function Projects() {
       features: ["Real-time Monitoring", "Dynamic UI", "Graphing Modules", "Scalable Architecture"],
       link: "#",
       github: "https://github.com/maddisagar/Dynamic_Message_Integrated",
+      liveDemo: "https://websocket-integrated-dashboard.vercel.app/",
       image: "/websocketintegrateddashboard.png",
       category: "Full Stack",
       showGithub: true,
@@ -66,28 +67,16 @@ export default function Projects() {
       showGithub: true,
     },
     {
-      title: "Complete Fruits Ecommerce",
-      description:
-        "Modern ecommerce platform increasing fruit sales by 30% in first month with improved mobile retention by 30%.",
-      technologies: ["ReactJS", "Framer Motion", "CSS3"],
-      features: ["Responsive Design", "Smooth Animations", "Shopping Cart", "Payment Integration"],
-      link: "#",
-      github: "https://github.com/example/complete-fruits-ecommerce",
-      image: "/placeholder.svg?height=300&width=400",
-      category: "E-commerce",
-      showGithub: false,
-    },
-    {
       title: "Temperature Converter",
       description:
         "React Native app supporting 4+ temperature scales with 15% accuracy boost and 20% faster conversions.",
       technologies: ["React Native", "JavaScript", "Mobile Development"],
       features: ["Multi-scale Support", "Real-time Conversion", "Intuitive UI", "Cross-platform"],
       link: "#",
-      github: "https://github.com/example/temperature-converter",
+      github: "https://github.com/SagarMaddi/Temperature-Converter",
       image: "/temperatureconverter.png",
       category: "Mobile",
-      showGithub: false,
+      showGithub: true,
     },
     {
       title: "3D CHARCON Visualization",
@@ -149,6 +138,18 @@ export default function Projects() {
                         whileTap={{ scale: 0.95 }}
                       >
                         <span>GitHub</span>
+                      </motion.a>
+                    )}
+                    {project.liveDemo && (
+                      <motion.a
+                        href={project.liveDemo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-link interactive ml-4"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <span>Live Demo</span>
                       </motion.a>
                     )}
                   </div>

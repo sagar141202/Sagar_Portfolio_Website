@@ -115,16 +115,16 @@ export default function Contact() {
       link: "tel:+918310233078",
     },
     {
-      icon: "💼",
+      icon: "🤝",
       label: "LinkedIn",
       value: "Connect with me",
       link: "https://linkedin.com/in/sagar-maddi",
     },
     {
-      icon: "🐙",
+      icon: "💻",
       label: "GitHub",
       value: "View my code",
-      link: "https://github.com/sagarmaddi",
+      link: "https://github.com/sagar141202",
     },
   ]
 
