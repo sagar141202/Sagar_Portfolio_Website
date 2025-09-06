@@ -1,5 +1,5 @@
 
-import React, { Suspense, useMemo } from "react";
+import React, { Suspense, useMemo, useState, useEffect } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
 import {
   Float,
@@ -25,6 +25,19 @@ function createEmojiTexture(emoji) {
 }
 
 const Ball = ({ icon }) => {
+  // Mobile detection
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   // Fallback emoji texture
   const fallbackTexture = useMemo(() => createEmojiTexture("❓"), []);
 
@@ -63,7 +76,11 @@ const Ball = ({ icon }) => {
   }, [icon, texture, fallbackTexture, isValidIconPath]);
 
   return (
-    <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
+    <Float
+      speed={isMobile ? 0.8 : 1.75}
+      rotationIntensity={isMobile ? 0.3 : 1}
+      floatIntensity={isMobile ? 0.5 : 2}
+    >
       <ambientLight intensity={0.25} />
       <directionalLight position={[0, 0, 0.05]} />
       <mesh castShadow receiveShadow scale={2.75}>
@@ -89,8 +106,35 @@ const Ball = ({ icon }) => {
 };
 
 const BallCanvas = ({ icon }) => {
+  // Mobile detection for DPR adjustment
+  const [isMobile, setIsMobile] = React.useState(false);
+  const [webGLError, setWebGLError] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Fallback component for when WebGL fails
+  if (webGLError) {
+    return (
+      <div className="w-28 h-28 flex items-center justify-center bg-gray-800 rounded-lg border border-gray-600">
+        <span className="text-2xl">⚡</span>
+      </div>
+    );
+  }
+
   return (
-    <Canvas dpr={[1, 2]} gl={{ preserveDrawingBuffer: true }}>
+    <Canvas
+      dpr={isMobile ? 1 : [1, 2]}
+      gl={{ preserveDrawingBuffer: true }}
+      onError={() => setWebGLError(true)}
+    >
       <Suspense fallback={null}>
         <OrbitControls enableZoom={false} />
         <Ball icon={icon} />
