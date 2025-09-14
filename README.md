@@ -1,46 +1,48 @@
 1. Folder Structure & Architecture
 Tree View
-Sagar_Portfolio/
-├── .gitignore
-├── eslint.config.mjs
-├── jsconfig.json
-├── next.config.mjs
-├── package.json
-├── postcss.config.mjs
-├── README.md
-├── public/
-│   ├── [images, logos, assets...]
-│   └── assets/
-│       ├── [tech stack icons...]
-├── src/
-│   ├── app/
-│   │   ├── favicon.ico
-│   │   ├── globals.css
-│   │   ├── layout.js
-│   │   └── page.js
-│   ├── assets/
-│   ├── components/
-│   │   ├── About.js
-│   │   ├── Contact.js
-│   │   ├── CustomCursor.js
-│   │   ├── Experience.js
-│   │   ├── Hero.js
-│   │   ├── Loader.jsx
-│   │   ├── Navigation.js
-│   │   ├── Projects.js
-│   │   ├── Skills.js
-│   │   ├── Tech.jsx
-│   │   └── canvas/
-│   │       ├── Ball.jsx
-│   │       └── BallGrid.jsx
-│   ├── constants/
-│   │   └── index.js
-│   ├── scripts/
-│   │   └── setup-emailjs.js
-│   ├── styles/
-│   │   └── globals.css
-│   └── utils/
-│       └── motion.js
+
+Sagar’s Portfolio:
+
+- .gitignore
+- eslint.config.mjs
+- jsconfig.json
+- next.config.mjs
+- package.json
+- postcss.config.mjs
+- README.md
+- public/
+    - [images, logos, assets…]
+    - assets/
+        - [tech stack icons…]
+- src/
+    - app/
+        - favicon.ico
+        - globals.css
+        - layout.js
+        - page.js
+    - assets/
+    - components/
+        - About.js
+        - Contact.js
+        - CustomCursor.js
+        - Experience.js
+        - Hero.js
+        - Loader.jsx
+        - Navigation.js
+        - Projects.js
+        - Skills.js
+        - Tech.jsx
+        - canvas/
+            - Ball.jsx
+            - BallGrid.jsx
+    - constants/
+        - index.js
+    - scripts/
+        - setup-emailjs.js
+    - styles/
+        - globals.css
+    - utils/
+        - motion.js
 
 Folder Purposes
 public/: Static assets (images, logos, icons) served directly by Next.js.
